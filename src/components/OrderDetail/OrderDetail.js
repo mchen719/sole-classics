@@ -20,7 +20,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
           {order.isPaid ?
             <span>ORDER <span className="smaller">{order.orderId}</span></span>
             :
-            <span>NEW ORDER</span>
+            <span>NEW CART </span>
           }
           <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
         </div>
@@ -36,6 +36,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
                     className="btn-sm"
                     onClick={handleCheckout}
                     disabled={!lineItems.length}
+                    style={{color: "black"}}
                   >CHECKOUT</button>
                 }
                 <span>{order.totalQty}</span>
@@ -43,7 +44,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
               </section>
             </>
             :
-            <div className={styles.hungry}>Hungry?</div>
+            <div className={styles.hungry}>GOT KICKS?</div>
           }
         </div>
       </div>

@@ -1,4 +1,5 @@
 import styles from './CategoryList.module.scss';
+import NavBar from '../NavBar'
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
   const cats = categories.map(cat =>
