@@ -1,7 +1,7 @@
 import styles from './CategoryList.module.scss';
-import NavBar from '../NavBar'
+import NavBar from '../NavBar/NavBar'
 
-export default function CategoryList({ categories, activeCat, setActiveCat }) {
+export default function CategoryList({ categories, activeCat, setActiveCat, input, setInput }) {
   const cats = categories.map(cat =>
     <li
       key={cat}
@@ -15,6 +15,7 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
   );
   return (
     <ul className={styles.CategoryList}>
+      <NavBar input={input} setInput={setInput}/>
       {cats}
     </ul>
   );

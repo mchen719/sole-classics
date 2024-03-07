@@ -13,6 +13,7 @@ export default function NewOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
+  const [input, setInput ] = useState("")
   const categoriesRef = useRef([]);
   const navigate = useNavigate();
 
@@ -61,12 +62,14 @@ export default function NewOrderPage({ user, setUser }) {
           categories={categoriesRef.current}
           cart={setCart}
           setActiveCat={setActiveCat}
+          setInput={setInput}
+          input={input}
         />
         <Link to="/orders" className="button btn-sm">PREVIOUS CARTS</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <MenuList
-        menuItems={menuItems.filter(item => item.category.name === activeCat)}
+        menuItems={input ? menuItems.filter(item => item.tags.includes(input.toLowerCase())) : menuItems.filter(item => item.category.name === activeCat)}
         handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail
